@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+</head>
+<style>
+    button{
+        font-family: 'Delicious Handrawn', cursive;
+        color:yellow;
+        background-color:rgb(4, 34, 55);
+        font-size:50px;
+        margin-left:45%;
+    }
+    h2{
+        font-family: 'Delicious Handrawn', cursive; 
+        text-align:center;
+        color:yellow;
+    }
+    body{
+       
+        font-size:80px;
+        background-color:rgb(4, 34, 55);
+    }
+
+    input{
+        font-family: 'Delicious Handrawn', cursive;
+        color:rgb(6, 5, 5);
+        /* display:flex; */
+        font-size:80px;
+        width:120px;
+        height:120px;
+         padding:20px; 
+        /* margin:2px; */
+        background-color:rgb(187, 237, 126);
+        border-color:yellow;
+        border-width:10px;
+        /* box-sizing: border-box; */
+    }
+    table{
+        padding-left:40%;
+    }
+</style>
+<body>
+    <h2>TIC TAC TOE GAME</h2>
+    <table>
+        <tr>
+            <td><input type="button" id="btn1" onclick="choice(this);Win();"></td>
+            <td><input type="button" id="btn2" onclick="choice(this);Win();" ></td>
+            <td><input type="button" id="btn3" onclick="choice(this);Win();"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="btn4" onclick="choice(this);Win();" ></td>
+            <td><input type="button" id="btn5" onclick="choice(this);Win();"></td>
+            <td><input type="button" id="btn6" onclick="choice(this);Win();"></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="btn7" onclick="choice(this);Win();"></td>
+            <td><input type="button" id="btn8" onclick="choice(this);Win();"></td>
+            <td><input type="button" id="btn9" onclick="choice(this);Win();"></td>
+        </tr>
+    </table>
+    <button  id="restart" onclick="func_Restart()"> RESTART</button>
+    <script>
+       //Function to play
+       let prevElement="X";
+        function choice(currElement){
+           if(currElement.value==""){
+            if(prevElement==="X"){
+                currElement.value="O"
+                prevElement=currElement.value;
+            }
+            else{
+            currElement.value="X";
+           prevElement=currElement.value;
+           }
+     }
+    }
+          
+        //Function to decide winner
+        //for winner player X
+      
+        let btn1=document.getElementById("btn1");
+        let btn2=document.getElementById("btn2");
+        let btn3=document.getElementById("btn3");
+        let btn4=document.getElementById("btn4");
+        let btn5=document.getElementById("btn5");
+        let btn6=document.getElementById("btn6");
+        let btn7=document.getElementById("btn7");
+        let btn8=document.getElementById("btn8");
+        let btn9=document.getElementById("btn9");
+       
+        function Win(){
+            if(btn1.value=="X" && btn2.value=="X" && btn3.value=="X" ){
+            btn4.disabled="true";
+            btn5.disabled="true";
+            btn6.disabled="true";
+            btn7.disabled="true";
+            btn8.disabled="true";
+            btn9.disabled="true";
+            alert("Player X won");
+            
+            }
+            else if(btn1.value=="X" && btn4.value=="X" && btn7.value=="X" ){
+            btn2.disabled="true";
+            btn3.disabled="true";
+            btn5.disabled="true";
+            btn6.disabled="true";
+            btn8.disabled="true";
+            btn9.disabled="true";
+            alert("Player X won");
+            }
+            else if(btn1.value=="X" && btn5.value=="X" && btn9.value=="X" ){
+            btn2.disabled="true";
+            btn3.disabled="true";
+            btn4.disabled="true";
+            btn6.disabled="true";
+            btn7.disabled="true";
+            btn8.disabled="true";
+            alert("Player X won");
+            }
+            else if(btn2.value=="X" && btn5.value=="X" && btn8.value=="X" ){
+            btn1.disabled="true";
+            btn3.disabled="true";
+            btn4.disabled="true";
+            btn6.disabled="true";
+            btn7.disabled="true";
+            btn9.disabled="true";
+            alert("Player X won");
+            }
+            else if(btn3.value=="X" && btn6.value=="X" && btn9.value=="X" ){
+            btn1.disabled="true";
+            btn2.disabled="true";
+            btn4.disabled="true";
+            btn5.disabled="true";
+            btn7.disabled="true";
+            btn8.disabled="true";
+            alert("Player X won");
+            }
+             else if(btn3.value=="X" && btn5.value=="X" && btn7.value=="X" ){
+            btn1.disabled="true";
+            btn2.disabled="true";
+            btn4.disabled="true";
+            btn6.disabled="true";
+            btn8.disabled="true";
+            btn9.disabled="true";
+            alert("Player X won");
+            }
+            else if(btn4.value=="X" && btn5.value=="X" && btn6.value=="X" ){
+                btn4.disabled="true";
+            btn5.disabled="true";
+            btn6.disabled="true";
+            btn7.disabled="true";
+            btn8.disabled="true";
+            btn9.disabled="true";
+            alert("Player X won");
+            }
+            else if(btn7.value=="X" && btn8.value=="X" && btn9.value=="X" ){
+            btn1.disabled="true";
+            btn2.disabled="true";
+            btn3.disabled="true";
+            btn4.disabled="true";
+            btn5.disabled="true";
+            btn6.disabled="true";
+            alert("Player X won");
+           }
+             else if(btn1.value=="O" && btn2.value=="O" && btn3.value=="O" ){
+            btn4.disabled="true";
+            btn5.disabled="true";
+            btn6.disabled="true";
+            btn7.disabled="true";
+            btn8.disabled="true";
+            btn9.disabled="true";
+            alert("Player O won");
+            }
+            else if(btn1.value=="O" && btn4.value=="O" && btn7.value=="O" ){
+            btn2.disabled="true";
+            btn3.disabled="true";
+            btn5.disabled="true";
+            btn6.disabled="true";
+            btn8.disabled="true";
+            btn9.disabled="true";
+            alert("Player O won");
+            }
+            else if(btn1.value=="O" && btn5.value=="O" && btn9.value=="O" ){
+            btn2.disabled="true";
+            btn3.disabled="true";
+            btn4.disabled="true";
+            btn6.disabled="true";
+            btn7.disabled="true";
+            btn8.disabled="true";
+            alert("Player O won");
+            }
+            else if(btn2.value=="O" && btn5.value=="O" && btn8.value=="O" ){
+            btn1.disabled="true";
+            btn3.disabled="true";
+            btn4.disabled="true";
+            btn6.disabled="true";
+            btn7.disabled="true";
+            btn9.disabled="true";;
+            alert("Player O won");
+            }
+            else if(btn3.value=="O" && btn6.value=="O" && btn9.value=="O" ){
+            btn1.disabled="true";
+            btn2.disabled="true";
+            btn4.disabled="true";
+            btn5.disabled="true";
+            btn7.disabled="true";
+            btn8.disabled="true";
+            alert("Player O won");
+            }
+            else if(btn3.value=="O" && btn5.value=="O" && btn7.value=="O" ){
+            btn1.disabled="true";
+            btn2.disabled="true";
+            btn4.disabled="true";
+            btn6.disabled="true";
+            btn8.disabled="true";
+            btn9.disabled="true";
+            alert("Player O won");
+           }
+           else if(btn4.value=="O" && btn5.value=="O" && btn6.value=="O" ){
+            btn1.disabled="true";
+            btn2.disabled="true";
+            btn3.disabled="true";
+            btn7.disabled="true";
+            btn8.disabled="true";
+            btn9.disabled="true";
+            alert("Player O won");
+        }
+        else if(btn7.value=="O" && btn8.value=="O" && btn9.value=="O" ){
+            btn1.disabled=true;
+            btn2.disabled=true;
+            btn3.disabled=true;
+            btn4.disabled=true;
+            btn5.disabled=true;
+            btn6.disabled=true; 
+            alert("Player O won");
+        }
+}   
+//function to restart
+function func_Restart(){
+    location.reload();
+    // btn1.disabled==false;
+    // btn2.disabled==false;
+    // btn3.disabled==false;
+    // btn4.disabled==false;
+    // btn5.disabled==false;
+    // btn6.disabled==false;
+    // btn7.disabled==false;
+    // btn8.disabled==false;
+    // btn9.disabled==false;
+    //btn1.value="";
+    //btn2.value="";
+    //btn3.value="";
+    //btn4.value="";
+    //btn5.value="";
+    //btn6.value="";
+    //btn7.value="";
+    //btn8.value="";
+    //btn9.value="";
+    
+}
+</script>
+    
+</body>
+</html>
